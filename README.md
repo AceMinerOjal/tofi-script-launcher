@@ -43,20 +43,20 @@ sudo pacman -S tofi libnotify
 ## Usage
 
 ```bash
-./launch.sh /path/to/target_dir [pattern1 pattern2 ...]
+bash launch.sh /path/to/target_dir [pattern1 pattern2 ...]
 ```
 * `/path/to/target_dir` — Required. The directory to scan for executable scripts or binaries.
 * `pattern1 pattern2 ...` — Optional. File name patterns to filter which executables appear in the menu (e.g., *.sh, *.x86_64). By default, all executables are included.
 **Examples:**
 ```bash
 # Launch scripts from ~/Games folder
-./launch.sh ~/Games
+bash launch.sh ~/Games
 
 # Only show shell scripts
-./launch.sh ~/Scripts '*.sh'
+bash launch.sh ~/Scripts '*.sh'
 
 # Launch only 64-bit binaries
-./launch.sh ~/Apps '*.x86_64'
+bash launch.sh ~/Apps '*.x86_64'
 ```
 After execution, a menu powered by `tofi` appears, listing the discovered scripts. Select an entry to run it. If a script has a generic name like `run` or `start`, the launcher will display its parent folder name instead.
 
@@ -71,5 +71,5 @@ After execution, a menu powered by `tofi` appears, listing the discovered script
 If you’re using a Wayland compositor like Hyprland, you can bind the launcher to a key. For example, open your `hyprland.conf` and add:
 ```Code Snippet
 # Launch scripts from a specific folder with Super + G
-bind = $mainMod, G, exec, ~/tofi-script-launcher/launch.sh ~/your/app/folder
+bind = $mainMod, G, exec, bash ~/tofi-script-launcher/launch.sh ~/your/app/folder
 ```
